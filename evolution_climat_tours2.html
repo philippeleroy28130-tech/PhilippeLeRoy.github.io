@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Évolution du climat à Tours - Analyse de données</title>
+    <meta name="description" content="Analyse détaillée des variations climatiques à Tours sur plusieurs décennies." />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            color: #005a9c;
+        }
+        article {
+            background: #fff;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .chart-container {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <!-- Inclusion de Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Évolution du climat à Tours</h1>
+        <p>Analyse détaillée des variations climatiques à Tours sur plusieurs décennies.</p>
+    </header>
+
+    <article>
+        <section>
+            <h2>Contexte</h2>
+            <p>Cette analyse présente l’évolution des températures, précipitations et autres paramètres climatiques observés à Tours à partir de données historiques recueillies sur plusieurs décennies.</p>
+        </section>
+
+        <section>
+            <h2>Résultats principaux</h2>
+            <p>Les tendances montrent une augmentation moyenne des températures et une variation saisonnière notable des précipitations, avec des impacts potentiels sur l’environnement local et l’agriculture.</p>
+        </section>
+
+        <section class="chart-container">
+            <h2>Visualisations</h2>
+            <!-- Zone du graphique interactif -->
+            <div id="graphique-evolution" style="width:100%; max-width:700px; height:400px; margin:auto;"></div>
+            <p><em>Figure 1 : Évolution des températures moyennes annuelles à Tours.</em></p>
+        </section>
+    </article>
+
+    <a href="index.html#data-analyses" class="back-link">&larr; Retour à la page Data Analyses</a>
+
+    <!-- Script pour tracer le graphique Plotly -->
+    <script>
+        // Données exemples, à adapter selon vos données réelles
+        const annees = [1980, 1990, 2000, 2010, 2020];
+        const temperatures = [12.1, 12.5, 13.0, 13.4, 14.0];
+
+        const data = [
+            {
+                x: annees,
+                y: temperatures,
+                type: 'scatter',
+                mode: 'lines+markers',
+                marker: { color: '#005a9c' },
+                line: { shape: 'spline' },
+                name: 'Température moyenne (°C)'
+            }
+        ];
+
+        const layout = {
+            title: 'Évolution des températures moyennes annuelles à Tours',
+            xaxis: {
+                title: 'Année',
+                dtick: 5,
+                zeroline: false
+            },
+            yaxis: {
+                title: 'Température (°C)',
+                zeroline: false
+            },
+            margin: { t: 50, b: 40 }
+        };
+
+        Plotly.newPlot('graphique-evolution', data, layout, {responsive: true});
+    </script>
+</body>
+</html>
