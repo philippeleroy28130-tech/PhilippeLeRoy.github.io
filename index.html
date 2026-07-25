@@ -1,527 +1,557 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Philippe Le Roy - Expert en Soutien Logistique Intégré (SLI)</title>
-    <style>
-        /* (Styles inchangés) */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        /* Header */
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        .nav-links li {
-            margin-left: 1.5rem;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: #3498db;
-        }
-        /* Hero */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding-top: 60px;
-        }
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 800px;
-        }
-        /* Services */
-        .services {
-            padding: 4rem 0;
-            background-color: white;
-        }
-        .services h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .service-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        .service-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .service-card-content {
-            padding: 1.5rem;
-        }
-        .service-card h3 {
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        /* Blog */
-        .blog {
-            padding: 4rem 0;
-            background-color: #f1f1f1;
-        }
-        .blog h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .blog-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .blog-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .blog-card-content {
-            padding: 1.5rem;
-        }
-        .blog-card h3 {
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        .blog-card p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        .read-more {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        .read-more:hover {
-            background-color: #2980b9;
-        }
-        /* Data-analyses */
-        .data-analyses {
-            background-color: #f9f9f9;
-            padding: 3rem 1rem;
-        }
-        .data-analyses h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .data-card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 7px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-        }
-        .data-card h3 {
-            margin-top: 0;
-        }
-        .data-card p {
-            flex-grow: 1;
-            margin-bottom: 1rem;
-        }
-        .data-card .read-more {
-            align-self: flex-start;
-            color: #007BFF;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .data-card .read-more:hover {
-            text-decoration: underline;
-        }
-        /* Contact */
-        .contact {
-            padding: 4rem 0;
-            background-color: white;
-            text-align: center;
-        }
-        .contact h2 {
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-        .contact-link {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-            font-size: 1rem;
-        }
-        .contact-link:hover {
-            background-color: #2980b9;
-        }
-        /* Footer */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        /* CV Section */
-        .cv-section {
-            padding: 4rem 0;
-            background-color: white;
-        }
-        .cv-section h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-        .cv-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-        .cv-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: #3498db;
-            transform: translateX(-50%);
-        }
-        .cv-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 50%;
-            text-align: left;
-        }
-        .cv-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 20px;
-            height: 20px;
-            background-color: #3498db;
-            border-radius: 50%;
-            transform: translateX(-50%) translateY(-50%);
-        }
-        .cv-item:nth-child(even) {
-            padding-left: 0;
-            padding-right: 50%;
-            text-align: right;
-        }
-        .cv-item:nth-child(even)::before {
-            left: auto;
-            right: 0;
-        }
-        .cv-item-content {
-            background-color: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .cv-item h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        .cv-item p {
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        .cv-skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        .skill-item {
-            background-color: #f1f1f1;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-        }
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .cv-item {
-                padding-left: 0 !important;
-                text-align: left !important;
-            }
-            .cv-item:nth-child(even) {
-                padding-right: 0 !important;
-                text-align: left !important;
-            }
-            .cv-timeline::before {
-                left: 10px;
-            }
-            .cv-item::before {
-                left: 10px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philippe Le Roy — Expert Soutien Logistique Intégré (SLI)</title>
+<meta name="description" content="Expert SLI, maintenance industrielle et métrologie. 33 ans d'expérience au sein des Armées. Agréé DGA. Disponible en freelance, portage salarial ou auto-entrepreneur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d151d;
+  --bg-panel:#141f29;
+  --bg-panel-alt:#1a2733;
+  --line: rgba(231,236,239,0.12);
+  --line-strong: rgba(231,236,239,0.22);
+  --steel:#5b9bc4;
+  --steel-dim:#3d6f8f;
+  --amber:#c9a24b;
+  --text:#e7ecef;
+  --text-muted:#8fa0ab;
+  --text-faint:#5f717c;
+  --radius: 2px;
+  --display: 'Space Grotesk', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --body: 'Inter', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+
+/* subtle blueprint grid backdrop */
+.grid-bg{
+  position:fixed;inset:0;z-index:-1;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:64px 64px;
+  opacity:0.35;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 75%);
+}
+
+/* corner-bracket frame, the recurring signature device */
+.bracket{position:relative;}
+.bracket::before,.bracket::after{
+  content:'';position:absolute;width:14px;height:14px;
+  border-color:var(--steel);border-style:solid;opacity:.6;
+}
+.bracket::before{top:-1px;left:-1px;border-width:1.5px 0 0 1.5px;}
+.bracket::after{bottom:-1px;right:-1px;border-width:0 1.5px 1.5px 0;}
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--steel);
+  display:flex;align-items:center;gap:.6rem;
+  margin-bottom:.9rem;
+}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--steel);}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;letter-spacing:-.01em;}
+.section-title{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:.6rem;}
+.section-sub{color:var(--text-muted);max-width:640px;margin-bottom:2.8rem;font-size:.98rem;}
+
+section{padding:6rem 0;position:relative;}
+.section-alt{background:var(--bg-panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+
+/* Header */
+header{
+  position:fixed;top:0;width:100%;z-index:1000;
+  background:rgba(13,21,29,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;}
+.logo{font-family:var(--display);font-size:1.05rem;font-weight:600;display:flex;flex-direction:column;line-height:1.2;}
+.logo span{font-family:var(--mono);font-size:.65rem;color:var(--steel);letter-spacing:.1em;font-weight:400;}
+.nav-links{display:flex;list-style:none;gap:2rem;align-items:center;}
+.nav-links a{
+  text-decoration:none;color:var(--text-muted);font-size:.88rem;
+  font-family:var(--mono);letter-spacing:.02em;
+  transition:color .2s;position:relative;
+}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{
+  border:1px solid var(--steel-dim);padding:.55rem 1.1rem;color:var(--steel)!important;
+  border-radius:var(--radius);
+}
+.nav-cta:hover{background:var(--steel);color:var(--bg)!important;border-color:var(--steel);}
+.nav-toggle{display:none;background:none;border:1px solid var(--line-strong);color:var(--text);padding:.5rem .7rem;font-size:1.1rem;cursor:pointer;border-radius:var(--radius);}
+
+/* Hero */
+.hero{
+  padding:11rem 0 6rem;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center;
+}
+.hero h1{font-size:clamp(2.1rem,4vw,3.1rem);line-height:1.12;margin-bottom:1.4rem;}
+.hero h1 em{font-style:normal;color:var(--steel);}
+.hero p{color:var(--text-muted);font-size:1.05rem;max-width:520px;margin-bottom:2.2rem;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{
+  font-family:var(--mono);font-size:.85rem;letter-spacing:.03em;
+  padding:.85rem 1.5rem;border-radius:var(--radius);text-decoration:none;
+  display:inline-flex;align-items:center;gap:.6rem;transition:all .2s;
+  border:1px solid transparent;
+}
+.btn-primary{background:var(--steel);color:#0d151d;font-weight:600;}
+.btn-primary:hover{background:#71aed3;}
+.btn-outline{border-color:var(--line-strong);color:var(--text);}
+.btn-outline:hover{border-color:var(--steel);color:var(--steel);}
+
+/* Spec plate — signature hero element */
+.plate{
+  background:var(--bg-panel);
+  border:1px solid var(--line-strong);
+  padding:1.8rem;
+}
+.plate-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border-bottom:1px solid var(--line);padding-bottom:.9rem;margin-bottom:.9rem;
+}
+.plate-head h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);}
+.plate-head .id{font-family:var(--mono);font-size:.7rem;color:var(--steel-dim);}
+.plate-row{
+  display:flex;justify-content:space-between;gap:1rem;
+  padding:.7rem 0;border-bottom:1px solid var(--line);font-size:.88rem;
+}
+.plate-row:last-child{border-bottom:none;}
+.plate-row .k{color:var(--text-muted);font-family:var(--mono);font-size:.76rem;letter-spacing:.02em;}
+.plate-row .v{text-align:right;font-weight:500;}
+.plate-row .v.accent{color:var(--amber);}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.service-card{
+  background:var(--bg-panel);border:1px solid var(--line);
+  padding:1.9rem;transition:border-color .2s, transform .2s;
+}
+.service-card:hover{border-color:var(--steel-dim);transform:translateY(-3px);}
+.service-icon{
+  width:42px;height:42px;border:1px solid var(--line-strong);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem;color:var(--steel);
+}
+.service-icon svg{width:22px;height:22px;}
+.service-card h3{font-size:1.05rem;margin-bottom:.7rem;}
+.service-card p{color:var(--text-muted);font-size:.92rem;margin-bottom:.5rem;}
+.service-card ul{margin-top:.8rem;padding-left:1.1rem;color:var(--text-muted);font-size:.9rem;}
+.service-card li{margin-bottom:.35rem;}
+.service-tag{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-faint);margin-bottom:.8rem;display:block;
+}
+
+/* CV / Timeline */
+.cv-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;margin-bottom:2.8rem;}
+.cv-layout{display:grid;grid-template-columns:.85fr 2fr;gap:3rem;}
+.cv-sidebar{position:sticky;top:100px;align-self:start;}
+.sidebar-block{border:1px solid var(--line);background:var(--bg-panel);padding:1.6rem;margin-bottom:1.2rem;}
+.sidebar-block h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-bottom:1rem;}
+.skill-bar-row{margin-bottom:1rem;}
+.skill-bar-row:last-child{margin-bottom:0;}
+.skill-bar-label{display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:.4rem;color:var(--text-muted);}
+.skill-bar-track{height:4px;background:var(--bg-panel-alt);border:1px solid var(--line);}
+.skill-bar-fill{height:100%;background:var(--steel);}
+.tagcloud{display:flex;flex-wrap:wrap;gap:.5rem;}
+.tag{
+  font-family:var(--mono);font-size:.72rem;padding:.35rem .65rem;
+  border:1px solid var(--line-strong);color:var(--text-muted);border-radius:var(--radius);
+}
+.lang-row{display:flex;justify-content:space-between;font-size:.85rem;padding:.5rem 0;border-bottom:1px solid var(--line);}
+.lang-row:last-child{border-bottom:none;}
+.lang-row .lvl{font-family:var(--mono);color:var(--steel);font-size:.75rem;}
+
+.timeline{border-left:1px solid var(--line-strong);padding-left:2.2rem;position:relative;}
+.tl-item{position:relative;padding-bottom:2.6rem;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+  content:'';position:absolute;left:-2.32rem;top:.35rem;
+  width:9px;height:9px;background:var(--bg);border:2px solid var(--steel);border-radius:50%;
+}
+.tl-date{font-family:var(--mono);font-size:.76rem;color:var(--steel);letter-spacing:.04em;margin-bottom:.5rem;display:block;}
+.tl-item h3{font-size:1.05rem;margin-bottom:.3rem;}
+.tl-item .org{color:var(--text-muted);font-size:.86rem;font-weight:500;margin-bottom:.6rem;font-style:normal;}
+.tl-item p{color:var(--text-muted);font-size:.92rem;}
+
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2.5rem;}
+.cert-card{border:1px solid var(--line);padding:1.2rem 1.3rem;background:var(--bg-panel);font-size:.86rem;}
+.cert-card .cert-mark{font-family:var(--mono);font-size:.68rem;color:var(--amber);letter-spacing:.08em;margin-bottom:.5rem;display:block;}
+
+/* Blog */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.6rem;}
+.blog-card{border:1px solid var(--line);background:var(--bg-panel);padding:1.7rem;transition:border-color .2s;}
+.blog-card:hover{border-color:var(--steel-dim);}
+.blog-card h3{font-size:1.02rem;margin-bottom:.7rem;}
+.blog-card p{color:var(--text-muted);font-size:.9rem;margin-bottom:1.2rem;}
+.read-more{
+  font-family:var(--mono);font-size:.78rem;color:var(--steel);text-decoration:none;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.read-more:hover{color:#71aed3;}
+
+/* Data analyses */
+.data-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem;}
+.data-card{border:1px solid var(--line);padding:1.6rem;display:flex;flex-direction:column;}
+.data-card h3{font-size:1rem;margin-bottom:.6rem;}
+.data-card p{color:var(--text-muted);font-size:.88rem;flex-grow:1;margin-bottom:1.2rem;}
+
+/* Contact */
+.contact-section{text-align:center;}
+.contact-section .section-sub{margin-left:auto;margin-right:auto;}
+.contact-panel{
+  max-width:640px;margin:0 auto;border:1px solid var(--line-strong);
+  background:var(--bg-panel);padding:2.6rem;
+}
+.contact-methods{display:flex;flex-direction:column;gap:.9rem;margin-bottom:2rem;text-align:left;}
+.contact-methods .row{display:flex;justify-content:space-between;font-size:.9rem;padding:.7rem 0;border-bottom:1px solid var(--line);}
+.contact-methods .row:last-child{border-bottom:none;}
+.contact-methods .k{color:var(--text-muted);font-family:var(--mono);font-size:.78rem;}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:2.5rem 0;}
+footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+footer p{color:var(--text-faint);font-size:.82rem;font-family:var(--mono);}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:9rem;}
+  .cv-layout{grid-template-columns:1fr;}
+  .cv-sidebar{position:static;}
+}
+@media (max-width:720px){
+  .nav-links{
+    position:fixed;top:64px;left:0;right:0;background:var(--bg);
+    flex-direction:column;align-items:flex-start;padding:1.5rem 24px;
+    border-bottom:1px solid var(--line);
+    transform:translateY(-130%);transition:transform .25s ease;gap:1.2rem;
+  }
+  .nav-links.open{transform:translateY(0);}
+  .nav-toggle{display:block;}
+  section{padding:4rem 0;}
+  footer .container{flex-direction:column;text-align:center;}
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Philippe Le Roy - Expert SLI</div>
-            <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#cv">CV & Expériences</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#data-analyses">Data Analyses</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="accueil" class="hero">
-        <div class="hero-content">
-            <h1>Expert en Soutien Logistique Intégré (SLI)</h1>
-            <p>Je vous accompagne dans l'optimisation de vos processus logistiques, la maintenance et la gestion des systèmes complexes pour une performance durable.</p>
-        </div>
-    </section>
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Mes Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Soutien Logistique Intégré">
-                    <div class="service-card-content">
-                        <h3>Soutien Logistique Intégré (SLI)</h3>
-                        <p>Optimisation des chaînes logistiques, gestion des flux et des stocks, intégration des systèmes de maintenance.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Maintenance">
-                    <div class="service-card-content">
-                        <h3>Maintenance Industrielle 4.0</h3>
-                        <p>Stratégies de maintenance préventive et corrective, analyse des risques et amélioration continue.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Formation">
-                    <div class="service-card-content">
-                        <h3>Formation et Conseil</h3>
-                        <p>Formations sur mesure en soutien maintenance logistique intégré et en gestion de projet pour vos équipes.</p>
-			<p>Interventions dans les universités ou en écoles supérieures sur la maintenance industrielle optimisée</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="types-contrats.jpg" alt="Types de Contrat">
-                    <div class="service-card-content">
-                        <h3>Types de Contrat</h3>
-                        <p>3 formules de collaboration possibles :</p>
-                        <ul>
-                            <li>En freelance à mi-temps (2 à 2,5 jours/semaine)</li>
-                            <li>En portage salarial</li>
-                            <li>En auto-entrepreneur</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Section CV & Expériences mise à jour -->
-    <section id="cv" class="cv-section">
-        <div class="container">
-            <h2>Mon Parcours Professionnel</h2>
-            <div class="cv-timeline">
-                <div class="cv-item">
-                    <div class="cv-item-content">
-                        <h3>Ingénieur en soutien technique (depuis janvier 2026)</h3>
-                        <p><strong>Etat-Major Maison Laffitte Pôle RTD Réseaux de Dessertes </strong></p>
-                        <p>Appui technique et expertise pour les réseaux de télécommunications, optimisation des infrastructures, gestion des projets stratégiques.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-item-content">
-                        <h3>Consultant en Gestion de Projets (2025)</h3>
-                        <p><strong>Thales Orléans - Usine d'Armement</strong></p>
-                        <p>Pilotage de projets industriels, optimisation des processus de production, gestion des ressources et coordination des équipes pluridisciplinaires.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-item-content">
-                        <h3>Chef du Centre CIRISI (2021 - 2024)</h3>
-                        <p><strong>Ministère des Armées</strong></p>
-                        <p>Gestion et disponibilité opérationnelle des matériels de télécommunications et de leurs processus logistiques, optimisation des ressources, leadership d'équipe.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-item-content">
-                        <h3>33 années d'expériences dans les Armées</h3>
-                        <p><strong>Expertise en logistique et maintenance</strong></p>
-                        <p>Évaluations excellentes, gestion de projets complexes, formation des équipes.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-item-content">
-                        <h3>Formation et Diplômes</h3>
-			<p><strong>Master Instrumentations, Essais, Mesures, Contrôles et Management des Systèmes avec Mention Très Bien.</strong></p>
-                        <p>Certifié en Ingénierie Logistique et Maintenance.</p>
-                        <p>Certifié en gestion de projets et optimisation des processus.</p>
-                        <p>Agréé par la DGA en soutien logistique intégré (SLI).</p>
-			<p>Référent en métrologie (mise en place des méthodes d'optimisation notamment OPPERET).</p>
+<div class="grid-bg"></div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="cv-skills">
-                <div class="skill-item">
-                    <h4>Soutien Logistique Intégré</h4>
-                </div>
-                <div class="skill-item">
-                    <h4>Maintenance Industrielle</h4>
-                </div>
-                <div class="skill-item">
-                    <h4>Gestion de Projet</h4>
-                </div>
-                <div class="skill-item">
-                    <h4>Formation et Conseil</h4>
-                </div>
-            </div>
+<header>
+  <nav class="container">
+    <div class="logo">Philippe Le Roy<span>EXPERT SLI — MAINTENANCE — MÉTROLOGIE</span></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#cv">Parcours</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#data-analyses">Data</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="accueil" class="hero container">
+  <div>
+    <div class="eyebrow">Ingénieur Divisionnaire de la Défense</div>
+    <h1>33 ans d'expertise en <em>disponibilité opérationnelle</em> des systèmes complexes.</h1>
+    <p>Ingénieur Divisionnaire de la Défense. Soutien Logistique Intégré, métrologie et instrumentation au service de vos programmes. Une expertise forgée dans les Armées et l'industrie de défense, disponible aujourd'hui pour vos projets.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Discutons de votre projet</a>
+      <a href="CV-Philippe-Le-Roy.pdf" class="btn btn-outline" download>↓ Télécharger le CV</a>
+    </div>
+  </div>
+  <div class="plate bracket">
+    <div class="plate-head">
+      <h4>Fiche technique</h4>
+      <span class="id">REF. PLR-SLI</span>
+    </div>
+    <div class="plate-row"><span class="k">Expérience</span><span class="v accent">33 ans</span></div>
+    <div class="plate-row"><span class="k">Titre</span><span class="v">Ingénieur Divisionnaire de la Défense</span></div>
+    <div class="plate-row"><span class="k">Domaine</span><span class="v">SLI · Métrologie · Instrumentation</span></div>
+    <div class="plate-row"><span class="k">Formation SLI</span><span class="v">Stage DGA</span></div>
+    <div class="plate-row"><span class="k">Diplôme</span><span class="v">Master 2 — Mention Bien</span></div>
+    <div class="plate-row"><span class="k">Méthode</span><span class="v">OPPERET</span></div>
+    <div class="plate-row"><span class="k">Disponibilité</span><span class="v accent">2 à 2,5 j / semaine</span></div>
+  </div>
+</section>
+
+<section id="services" class="section-alt">
+  <div class="container">
+    <div class="eyebrow reveal">Ce que je fais</div>
+    <h2 class="section-title reveal">Mes services</h2>
+    <p class="section-sub reveal">Un accompagnement rigoureux, de l'optimisation des flux à la formation de vos équipes, avec le niveau d'exigence des programmes de défense.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></div>
+        <span class="service-tag">01 — Cœur de métier</span>
+        <h3>Soutien Logistique Intégré (SLI)</h3>
+        <p>Optimisation des chaînes logistiques, gestion des flux et des stocks, intégration des systèmes de maintenance dans une logique de disponibilité opérationnelle.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <span class="service-tag">02 — Fiabilité</span>
+        <h3>Maintenance industrielle</h3>
+        <p>Stratégies de maintenance préventive et corrective, analyse des risques, amélioration continue et suivi des indicateurs de fiabilité (MTBF, disponibilité).</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></div>
+        <span class="service-tag">03 — Transmission</span>
+        <h3>Formation et conseil</h3>
+        <p>Formations sur mesure en soutien maintenance logistique intégré et en gestion de projet. Interventions en universités et écoles supérieures.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg></div>
+        <span class="service-tag">04 — Modalités</span>
+        <h3>Types de contrat</h3>
+        <p>Trois formules de collaboration possibles, adaptées à vos besoins :</p>
+        <ul>
+          <li>Freelance à mi-temps (2 à 2,5 j / semaine)</li>
+          <li>Portage salarial</li>
+          <li>Auto-entrepreneur</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cv">
+  <div class="container">
+    <div class="cv-top reveal">
+      <div>
+        <div class="eyebrow">Historique de service</div>
+        <h2 class="section-title">Parcours professionnel</h2>
+      </div>
+      <a href="CV-Philippe-Le-Roy.pdf" class="btn btn-outline" download>↓ CV complet (PDF)</a>
+    </div>
+
+    <div class="cv-layout">
+      <aside class="cv-sidebar reveal">
+        <div class="sidebar-block">
+          <h4>Compétences</h4>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label"><span>Soutien Logistique Intégré</span><span>98%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:98%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label"><span>Métrologie & Instrumentation</span><span>96%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:96%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label"><span>Électronique</span><span>90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label"><span>Télécoms & réseaux</span><span>88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label"><span>Data analyse (Python, BO)</span><span>75%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
+          </div>
         </div>
-    </section>
-    <section id="blog" class="blog">
-        <div class="container">
-            <h2>Blog Technique</h2>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Article SLI">
-                    <div class="blog-card-content">
-                        <h3>Qu'est-ce que le Soutien Logistique Intégré ?</h3>
-                        <p>Découvrez les principes clés du SLI et comment il peut transformer votre organisation logistique.</p>
-                        <a href="qqsli.html" class="read-more">Lire plus</a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Article Maintenance">
-                    <div class="blog-card-content">
-                        <h3>Les bonnes pratiques de la maintenance industrielle</h3>
-                        <p>Comment mettre en place une maintenance efficace pour réduire les coûts et augmenter la disponibilité de vos équipements.</p>
-                        <a href="bpmi.html" class="read-more">Lire plus</a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Article Gestion">
-                    <div class="blog-card-content">
-                        <h3>Gestion des stocks : méthodes et outils</h3>
-                        <p>Analyse des méthodes de gestion des stocks et des outils pour optimiser votre supply chain.</p>
-                        <a href="gdsmo.html" class="read-more">Lire plus</a>
-                    </div>
-                </div>
-            </div>
+        <div class="sidebar-block">
+          <h4>Domaines d'expertise</h4>
+          <div class="tagcloud">
+            <span class="tag">OPPERET</span>
+            <span class="tag">Stage SLI (DGA)</span>
+            <span class="tag">AFNOR</span>
+            <span class="tag">ISO 9001</span>
+            <span class="tag">Qualité</span>
+            <span class="tag">Énergies</span>
+          </div>
         </div>
-    </section>
-    <section id="data-analyses" class="data-analyses">
-        <div class="container">
-            <h2>Data Analyses</h2>
-            <p>Découvrez mes réalisations et analyses de données issues de projets Python.</p>
-            <div class="data-grid">
-                <div class="data-card">
-                    <h3>Evolution du climat à Tours</h3>
-                    <p>Analyse détaillée des variations climatiques à Tours sur plusieurs décennies à partir de données historiques.</p>
-                    <a href="evolution_climat_tours.html" class="read-more">Voir l'analyse</a>
-                </div>
-                <div class="data-card">
-                    <h3>Analyse des tendances logistiques</h3>
-                    <p>Exploration et visualisation des données de flux logistiques sur plusieurs années.</p>
-                    <a href="analyse_tendances.html" class="read-more">Voir l'analyse</a>
-                </div>
-                <div class="data-card">
-                    <h3>Optimisation des stocks par modélisation</h3>
-                    <p>Utilisation de modèles statistiques pour optimiser les niveaux de stocks.</p>
-                    <a href="optimisation_stocks.html" class="read-more">Voir l'analyse</a>
-                </div>
-            </div>
+        <div class="sidebar-block">
+          <h4>Langues</h4>
+          <div class="lang-row"><span>Français</span><span class="lvl">Natif</span></div>
+          <div class="lang-row"><span>Anglais</span><span class="lvl">Technique / scientifique</span></div>
         </div>
-    </section>
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contactez-moi</h2>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScVArIMbGKbz8dMCDcRoWpETsuu67J40WktjB3Ck3HQ4QRF5w/viewform?usp=header" class="contact-link" target="_blank" rel="noopener noreferrer">
-                Remplir le formulaire de contact
-            </a>
+      </aside>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <span class="tl-date">2024 – 2025</span>
+          <h3>Consultant chargé de projets</h3>
+          <p class="org">Usine d'Armements Thales LAS d'Orléans</p>
+          <p>Projets cycle en V : 2 projets complets menés à terme en instrumentation/mesures et optimisation des interventions de métrologie, de la conception au RETEX (formations et livrables compris). Interactions avec la production, le support informatique et la direction.</p>
         </div>
-    </section>
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Philippe Le Roy - Expert en Soutien Logistique Intégré</p>
+        <div class="tl-item reveal">
+          <span class="tl-date">2021 – 2024</span>
+          <h3>Chef de Centre CIRISI de Tours — BA 705</h3>
+          <p class="org">Ministère des Armées · Détachement Conseiller Technique de la Défense (CTD)</p>
+          <p>Encadrement de 102 personnes réparties sur 5 emprises.</p>
         </div>
-    </footer>
+        <div class="tl-item reveal">
+          <span class="tl-date">2017 – 2021</span>
+          <h3>Chef de Groupe Environnements et Systèmes</h3>
+          <p class="org">Section Technique du MCO-T de Nouâtre</p>
+          <p>Expertises énergies électriques (fossiles, batteries, groupes électrogènes, piles à combustible), climatisation, abris techniques mobiles. Encadrement 15 à 20 personnes.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-date">2009 – 2017</span>
+          <h3>Responsable Parcs Instruments Mesures Électriques et Électroniques Interarmées</h3>
+          <p class="org">Parc AMEE — Versailles Satory · Officier Pilotage du Soutien</p>
+          <p>Gestion des moyens de mesures, plan de renouvellement, maintien en condition opérationnelle. Encadrement indirect : 6 personnes.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-date">2005 – 2009</span>
+          <h3>Responsable National de la Métrologie — Armée de l'Air</h3>
+          <p class="org">Antenne CSFA, base aérienne 278 d'Ambérieu-en-Bugey</p>
+          <p>Gestion des moyens de mesures, plan de renouvellement, maintien en condition opérationnelle. Encadrement : 80 personnes.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-date">2001 – 2005</span>
+          <h3>Directeur Qualité — chaîne TEI (télécommunications)</h3>
+          <p class="org">43ᵉ Bataillon des Transmissions, Orléans · Inspecteur des Transmissions (cat. A)</p>
+          <p>2 cycles de certification ISO 9001 menés avec succès. Encadrement direct 4, indirect 160 personnes.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-date">1998 – 2001</span>
+          <h3>Architecte Télécoms des Réseaux Locaux (REMATIS)</h3>
+          <p class="org">Direction Centrale des Télécommunications et de l'Informatique, Kremlin-Bicêtre</p>
+          <p>Réseau d'État-Major de l'Armée de Terre à intégration de services. Encadrement : 6 personnes.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-date">1993 – 1998</span>
+          <h3>Responsable Technique des moyens de transmissions d'extrémités communs</h3>
+          <p class="org">Centre National du Soutien des Systèmes de Télécommunications — Kremlin-Bicêtre puis Orléans</p>
+          <p>Encadrement : 2 personnes.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-date">1986 – 1993</span>
+          <h3>Secteur privé — missions techniques</h3>
+          <p class="org">Remplacement de professeur · Technicien électronique bancs de mesures · Officier mécanicien marine</p>
+          <p>Remplacement de professeur (mathématiques, électronique) ; technicien en électronique bancs de mesures (Schlumberger / Matra) ; officier mécanicien (chef de quart), marine — 5 ans, encadrement 3 personnes.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-date">Formation</span>
+          <h3>Diplômes et certifications</h3>
+          <p class="org">Master 2 Sciences et Technologies « Instrumentation, Métrologie des Systèmes » — Mention Bien (Université d'Orléans)</p>
+          <p>Maîtrise Sciences et Technologies spécialité Électronique · Diplôme de Capitaine de 2ᵉ classe de la Navigation Maritime · BTS Électronique et Automatismes Industriels. Référent en métrologie (méthode OPPERET).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-grid">
+      <div class="cert-card reveal"><span class="cert-mark">STAGE DGA</span>Soutien Logistique Intégré</div>
+      <div class="cert-card reveal"><span class="cert-mark">AFNOR</span>Responsable Métrologie — méthodes de mesures et d'essais</div>
+      <div class="cert-card reveal"><span class="cert-mark">ARTS ET MÉTIERS</span>Certificat de compétence Responsable Qualité</div>
+      <div class="cert-card reveal"><span class="cert-mark">ISO 9001</span>2 cycles de certification menés avec succès (43ᵉ BT)</div>
+    </div>
+  </div>
+</section>
+
+<section id="blog" class="section-alt">
+  <div class="container">
+    <div class="eyebrow reveal">Ressources</div>
+    <h2 class="section-title reveal">Blog technique</h2>
+    <p class="section-sub reveal">Notes et retours d'expérience sur le SLI, la maintenance et la gestion des flux.</p>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <h3>Qu'est-ce que le Soutien Logistique Intégré ?</h3>
+        <p>Découvrez les principes clés du SLI et comment il peut transformer votre organisation logistique.</p>
+        <a href="qqsli.html" class="read-more">Lire l'article →</a>
+      </div>
+      <div class="blog-card reveal">
+        <h3>Les bonnes pratiques de la maintenance industrielle</h3>
+        <p>Comment mettre en place une maintenance efficace pour réduire les coûts et augmenter la disponibilité de vos équipements.</p>
+        <a href="bpmi.html" class="read-more">Lire l'article →</a>
+      </div>
+      <div class="blog-card reveal">
+        <h3>Gestion des stocks : méthodes et outils</h3>
+        <p>Analyse des méthodes de gestion des stocks et des outils pour optimiser votre supply chain.</p>
+        <a href="gdsmo.html" class="read-more">Lire l'article →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="data-analyses">
+  <div class="container">
+    <div class="eyebrow reveal">Python & statistiques</div>
+    <h2 class="section-title reveal">Data analyses</h2>
+    <p class="section-sub reveal">Réalisations et analyses de données issues de projets Python.</p>
+    <div class="data-grid">
+      <div class="data-card reveal">
+        <h3>Évolution du climat à Tours</h3>
+        <p>Analyse détaillée des variations climatiques à Tours sur plusieurs décennies à partir de données historiques.</p>
+        <a href="evolution_climat_tours.html" class="read-more">Voir l'analyse →</a>
+      </div>
+      <div class="data-card reveal">
+        <h3>Analyse des tendances logistiques</h3>
+        <p>Exploration et visualisation des données de flux logistiques sur plusieurs années.</p>
+        <a href="analyse_tendances.html" class="read-more">Voir l'analyse →</a>
+      </div>
+      <div class="data-card reveal">
+        <h3>Optimisation des stocks par modélisation</h3>
+        <p>Utilisation de modèles statistiques pour optimiser les niveaux de stocks.</p>
+        <a href="optimisation_stocks.html" class="read-more">Voir l'analyse →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section-alt contact-section">
+  <div class="container">
+    <div class="eyebrow reveal" style="justify-content:center;">Prenons contact</div>
+    <h2 class="section-title reveal">Discutons de votre besoin</h2>
+    <p class="section-sub reveal">Que ce soit pour une mission ponctuelle, une expertise SLI ou une formation, je réponds sous 48h.</p>
+    <div class="contact-panel bracket reveal">
+      <div class="contact-methods">
+        <div class="row"><span class="k">Localisation</span><span>Monts (37260), France</span></div>
+        <div class="row"><span class="k">Téléphone</span><span><a href="tel:+33781285860">07 81 28 58 60</a></span></div>
+        <div class="row"><span class="k">Email</span><span><a href="mailto:philippe.leroy28130@gmail.com">philippe.leroy28130@gmail.com</a></span></div>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScVArIMbGKbz8dMCDcRoWpETsuu67J40WktjB3Ck3HQ4QRF5w/viewform?usp=header" class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="width:100%;justify-content:center;">
+        Remplir le formulaire de contact
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Philippe Le Roy — Expert en Soutien Logistique Intégré</p>
+    <p>Agréé DGA · SLI · Maintenance · Métrologie</p>
+  </div>
+</footer>
+
+<script>
+// mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
